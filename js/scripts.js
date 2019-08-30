@@ -1,23 +1,35 @@
-var newPizza = []
+var newPizza = new Pizza();
 
-function Pizza(base1, topping1, topping2, topping3, topping4){
-  this.base= base1;
-  this.pepperoni= topping1;
-  this.olives= topping2;
-  this.sausage= topping3;
-  this.peppers= topping4;
+function Pizza(){
+  this.pizzaCost = []
+}
+
+function Toppings(base1, topping1, topping2, topping3, topping4){
+  this.base= parseInt(base1);
+  this.pepperoni= parseInt(topping1);
+  this.olives= parseInt(topping2);
+  this.sausage= parseInt(topping3);
+  this.peppers= parseInt(topping4);
+  // this.newPizza=[]
 }
 
 //Cannot write this function unless it's being pushed to an instance of another constructor
 // Pizza.prototype.startPizza = function(newPizza){
 // }
 
-Pizza.prototype.addToppings = function(){
-  this.base = this.base + this.pepperoni + this.olives + this.sausge + this.peppers
-  newPizza.push(this.base);
+
+Pizza.prototype.Price = function(pizza){
+  this.pizzaCost.push(pizza);
 }
 
+Toppings.prototype.addToppings = function(){
+this.base + this.pepperoni + this.olives + this.sausge + this.peppers
+
+}
+
+var newPizza = []
 console.log(newPizza);
+
 
 // UI Logic
 $(document).ready(function(){
@@ -45,9 +57,18 @@ var base = $("input:radio[name=start]:checked").val();
 console.log(base);
 console.log(pepperoni);
 console.log(sausage);
-var pizza1 = new Pizza(base, pepperoni, olives, sausage, peppers);
+var pizza1 = new Toppings(base, pepperoni, olives, sausage, peppers);
 pizza1.addToppings(pizza1);
-console.log(pizza1);
+newPizza.Price(pizza1)
+// var pizzaPrice = []
+console.log(newPizza);
+// pizza1.forEach(function(pizza){
+//     if(pizza === 10 | 2){
+//       pizzaPrice.push(pizza)
+//     }else{
+//     }
+//
+//     });
 
 
 
