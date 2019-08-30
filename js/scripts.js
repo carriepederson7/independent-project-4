@@ -4,13 +4,14 @@
 //   this.pizzaCost = []
 // }
 
+
+
 function Pizza(base1, topping1, topping2, topping3, topping4){
   this.base= parseInt(base1);
   this.pepperoni= parseInt(topping1);
   this.olives= parseInt(topping2);
   this.sausage= parseInt(topping3);
   this.peppers= parseInt(topping4);
-  // this.newPizza=[]
 }
 
 //Cannot write this function unless it's being pushed to an instance of another constructor
@@ -26,6 +27,11 @@ Pizza.prototype.addToppings = function(){
 this.base + this.pepperoni + this.olives + this.sausge + this.peppers
 }
 
+// Pizza.prototype.addPrice = function(){
+//   var total = this.base += this.pepperoni += this.olives += this.sausge += this.peppers
+//   return total
+// }
+// console.log(total);
 
 
 
@@ -58,14 +64,38 @@ var base = $("input:radio[name=start]:checked").val();
 // console.log(sausage);
 var pizza1 = new Pizza(base, pepperoni, olives, sausage, peppers);
 pizza1.addToppings(pizza1);
-var prices = [pizza1.base.toString(), pizza1.pepperoni.toString(), pizza1.olives.toString(), pizza1.sausage.toString(), pizza1.peppers.toString()];
-var filtered = prices.filter(function(){
-return "10" || "2";
+console.log(pizza1);
 
+
+var prices = [pizza1.base.toString(), pizza1.pepperoni.toString(), pizza1.olives.toString(), pizza1.sausage.toString(), pizza1.peppers.toString()];
+console.log(prices);
+
+var nan = []
+var pizza = []
+console.log(nan);
+console.log(pizza);
+
+prices.forEach(function(price){
+  if(pizza === "NaN"){
+  nan.push(pizza)
+}else{
+  price.push(pizza)
+}
 });
-filtered
-prices
-console.log(filtered);
+
+
+
+// var filter1 = prices.filter(function(value){
+// return value === "10";});
+// var filter2 = prices.filter(function(value){
+// return value === "2";});
+// filter1.join(,);
+// filter2.join(,);
+// console.log(filter1);
+// console.log(filter2);
+// var total = paresInt(filter1) += parseInt(filter2)
+// console.log(total);
+
 // console.log(prices);
 
 
