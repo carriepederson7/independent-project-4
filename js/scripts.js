@@ -67,34 +67,40 @@ pizza1.addToppings(pizza1);
 console.log(pizza1);
 
 
-var prices = [pizza1.base.toString(), pizza1.pepperoni.toString(), pizza1.olives.toString(), pizza1.sausage.toString(), pizza1.peppers.toString()];
+var prices = [pizza1.base, pizza1.pepperoni, pizza1.olives, pizza1.sausage, pizza1.peppers];
 console.log(prices);
-
-var nan = []
-var pizza = []
-console.log(nan);
-console.log(pizza);
-
-prices.forEach(function(price){
-  if(pizza === "NaN"){
-  nan.push(pizza)
-}else{
-  price.push(pizza)
+var filter1 = prices.filter(function(value){
+  return value === 10;});
+var filter2 = prices.filter(function(value){
+    return value === 2;});
+var combined = filter1.concat(filter2)
+var addFilter2 = combined.reduce(addNumbers);
+function addNumbers(total, num) {
+  return total + num;
 }
-});
+$("#cost").text(addFilter2)
+
+
+// var result = filter1 += addFilter2
+console.log(filter2);
+console.log(addFilter2);
+console.log(result);
+
+// var nan = []
+// var pizza = []
+// console.log(nan);
+// console.log(pizza);
+//
+// prices.forEach(function(price){
+//   if(pizza === "NaN"){
+//   nan.push(pizza)
+// }else{
+//   price.push(pizza)
+// }
+// });
 
 
 
-// var filter1 = prices.filter(function(value){
-// return value === "10";});
-// var filter2 = prices.filter(function(value){
-// return value === "2";});
-// filter1.join(,);
-// filter2.join(,);
-// console.log(filter1);
-// console.log(filter2);
-// var total = paresInt(filter1) += parseInt(filter2)
-// console.log(total);
 
 // console.log(prices);
 
