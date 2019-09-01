@@ -1,37 +1,58 @@
-// var newPizza = new Pizza();
+// function Pizza(base1, topping1, topping2, topping3, topping4){
+//   this.small= parseInt(small);
+//   this.medium= parseInt(medium);
+//   this.large= parseInt(large);
+//   this.pepperoni= parseInt(topping1);
+//   this.olives= parseInt(topping2);
+//   this.sausage= parseInt(topping3);
+//   this.peppers= parseInt(topping4);
+// }
+
+function Pizza(){
+  this.small= 10;
+  this.medium= 12;
+  this.large= 14;
+  this.pepperoni= 2;
+  this.olives= 2;
+  this.sausage= 2;
+  this.peppers= 2;
+}
+
+
+// console.log(lastPrice)
+
+Pizza.prototype.addSize = function() {
+  var size = []
+  if (this.small === 10){
+    size.push(this.small)
+  } else if (this.medium === 12) {
+    size.push(this.medium)
+  }else if (this.large === 14) {
+    size.push(this.large)
+  }
+    return size
+
+};
+
+Pizza.prototype.addToppings = function() {
+  var toppings = []
+  var finalToppings = []
+  toppings.push(this.pepperoni, this.olives, this.sausage, this.peppers);
+  toppings.forEach(function(topping) {
+    if(topping === 2){
+      finalToppings.push(topping)
+    }
+  });
+   return finalToppings
+
+};
+
 //
-// function Pizza(){
-//   this.pizzaCost = []
+// Pizza.prototype.addToppings = function(){
+// this.base + this.pepperoni + this.olives + this.sausge + this.peppers
 // }
 
 
-
-function Pizza(base1, topping1, topping2, topping3, topping4){
-  this.base= parseInt(base1);
-  this.pepperoni= parseInt(topping1);
-  this.olives= parseInt(topping2);
-  this.sausage= parseInt(topping3);
-  this.peppers= parseInt(topping4);
-}
-
-//Cannot write this function unless it's being pushed to an instance of another constructor
-// Pizza.prototype.startPizza = function(newPizza){
-// }
-
-
-// Pizza.prototype.Price = function(pizza){
-//   this.pizzaCost.push(pizza);
-// }
-
-Pizza.prototype.addToppings = function(){
-this.base + this.pepperoni + this.olives + this.sausge + this.peppers
-}
-
-// Pizza.prototype.addPrice = function(){
-//   var total = this.base += this.pepperoni += this.olives += this.sausge += this.peppers
-//   return total
-// }
-// console.log(total);
 
 
 
@@ -52,45 +73,48 @@ $('#form').submit(function(event){
 
 
 
-var olives = $("input:radio[name=olives]:checked").val();
-var pepperoni = $("input:radio[name=pepperoni]:checked").val();
-var sausage = $("input:radio[name=sausage]:checked").val();
-var peppers = $("input:radio[name=peppers]:checked").val();
+var pizza1 = new Pizza();
 
-
-var base = $("input:radio[name=start]:checked").val();
-// console.log(base);
-// console.log(pepperoni);
-// console.log(sausage);
-var pizza1 = new Pizza(base, pepperoni, olives, sausage, peppers);
-pizza1.addToppings(pizza1);
+// pizza1.addToppings(pizza1);
+pizza1.small = parseInt($("input:radio[name=small]:checked").val());
+pizza1.medium = parseInt($("input:radio[name=medium]:checked").val());
+pizza1.large = parseInt($("input:radio[name=large]:checked").val());
+pizza1.pepperoni = parseInt($("input:radio[name=pepperoni]:checked").val());
+pizza1.olives = parseInt($("input:radio[name=olives]:checked").val());
+pizza1.sausage = parseInt($("input:radio[name=sausage]:checked").val());
+pizza1.peppers = parseInt($("input:radio[name=peppers]:checked").val());
 console.log(pizza1);
-
-
-var prices = [pizza1.base, pizza1.pepperoni, pizza1.olives, pizza1.sausage, pizza1.peppers];
-console.log(prices);
-var filter1 = prices.filter(function(value){
-  return value === 10;});
-var filter2 = prices.filter(function(value){
-    return value === 2;});
-var combined = filter1.concat(filter2)
-var addFilter2 = combined.reduce(addNumbers);
+var sizeCost = pizza1.addSize();
+var toppingCost = pizza1.addToppings();
+var combined = sizeCost.concat(toppingCost);
+var cost = combined.reduce(addNumbers);
 function addNumbers(total, num) {
   return total + num;
 }
-$("#cost").text(addFilter2)
+// var price = pizza1.addPrice();
+
+console.log(cost);
+
+$("#cost").text(cost)
 
 
-// var result = filter1 += addFilter2
-console.log(filter2);
-console.log(addFilter2);
-console.log(result);
+
+// this generates the price of the pizza
+// var prices = [pizza1.base, pizza1.pepperoni, pizza1.olives, pizza1.sausage, pizza1.peppers];
+// var filter1 = prices.filter(function(value){
+//   return value === 10;});
+// var filter2 = prices.filter(function(value){
+//     return value === 2;});
+// var combined = filter1.concat(filter2)
+// var addFilter2 = combined.reduce(addNumbers);
+// function addNumbers(total, num) {
+//   return total + num;
+// }
+// $("#cost").text(addFilter2)
+
 
 // var nan = []
 // var pizza = []
-// console.log(nan);
-// console.log(pizza);
-//
 // prices.forEach(function(price){
 //   if(pizza === "NaN"){
 //   nan.push(pizza)
@@ -99,21 +123,6 @@ console.log(result);
 // }
 // });
 
-
-
-
-// console.log(prices);
-
-
-// var result = []
-// // var nan = []
-// console.log(result);
-// console.log(prices);
-// for(var i =0; i<prices.length; i++){
-//   if([i] === "10"){
-//   result.push([i]);
-//   }
-// }
 
 // var pizzaPrice = []
 // pizza1.forEach(function(pizza){
