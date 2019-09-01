@@ -1,13 +1,3 @@
-// function Pizza(base1, topping1, topping2, topping3, topping4){
-//   this.small= parseInt(small);
-//   this.medium= parseInt(medium);
-//   this.large= parseInt(large);
-//   this.pepperoni= parseInt(topping1);
-//   this.olives= parseInt(topping2);
-//   this.sausage= parseInt(topping3);
-//   this.peppers= parseInt(topping4);
-// }
-
 function Pizza(){
   this.small= 10;
   this.medium= 12;
@@ -30,11 +20,7 @@ Pizza.prototype.addSize = function() {
   }else if (this.large === 14) {
     size.push(this.large)
   }
-    return size
 
-};
-
-Pizza.prototype.addToppings = function() {
   var toppings = []
   var finalToppings = []
   toppings.push(this.pepperoni, this.olives, this.sausage, this.peppers);
@@ -43,9 +29,22 @@ Pizza.prototype.addToppings = function() {
       finalToppings.push(topping)
     }
   });
-   return finalToppings
+
+ var one = finalToppings.concat(size)
+ var two = one.toString();
+ 
+
+
+
+
+console.log(three)
 
 };
+
+// return finalToppings
+// Pizza.prototype.addToppings = function() {
+//
+// };
 
 //
 // Pizza.prototype.addToppings = function(){
@@ -85,17 +84,17 @@ pizza1.sausage = parseInt($("input:radio[name=sausage]:checked").val());
 pizza1.peppers = parseInt($("input:radio[name=peppers]:checked").val());
 console.log(pizza1);
 var sizeCost = pizza1.addSize();
-var toppingCost = pizza1.addToppings();
-var combined = sizeCost.concat(toppingCost);
-var cost = combined.reduce(addNumbers);
-function addNumbers(total, num) {
-  return total + num;
-}
+// var toppingCost = pizza1.addToppings();
+// var combined = sizeCost.concat(toppingCost);
+// var cost = combined.reduce(addNumbers);
+// function addNumbers(total, num) {
+//   return total + num;
+// }
 // var price = pizza1.addPrice();
 
-console.log(cost);
+console.log(sizeCost);
 
-$("#cost").text(cost)
+$("#cost").text(sizeCost)
 
 
 
