@@ -8,10 +8,7 @@ function Pizza(){
   this.peppers= 2;
 }
 
-
-// console.log(lastPrice)
-
-Pizza.prototype.addSize = function() {
+Pizza.prototype.addPrice = function() {
   var size = []
   if (this.small === 10){
     size.push(this.small)
@@ -30,51 +27,25 @@ Pizza.prototype.addSize = function() {
     }
   });
 
- var one = finalToppings.concat(size)
- var two = one.toString();
- 
+ var one = finalToppings.concat(size);
+ var two = one.splice("");
+ total= 0;
+ two.forEach(function(number){
+   total = number + total
+ });
 
+return total
 
-
-
-console.log(three)
-
-};
-
-// return finalToppings
-// Pizza.prototype.addToppings = function() {
-//
-// };
-
-//
-// Pizza.prototype.addToppings = function(){
-// this.base + this.pepperoni + this.olives + this.sausge + this.peppers
-// }
-
-
-
+}
 
 
 
 // UI Logic
 $(document).ready(function(){
-// $("#start-pizza").click(function(){
-//   var base = alert('This button does nothing.')});
-
 $('#form').submit(function(event){
     event.preventDefault();
 
-// $("input:checkbox[name=topping]:checked").each(function(){
-// var olives = $("#olives").val();
-// var pepperoni = $("#pepperoni").val();
-// var sausage = $("#sausage").val();
-// var peppers = $("#peppers").val();
-
-
-
 var pizza1 = new Pizza();
-
-// pizza1.addToppings(pizza1);
 pizza1.small = parseInt($("input:radio[name=small]:checked").val());
 pizza1.medium = parseInt($("input:radio[name=medium]:checked").val());
 pizza1.large = parseInt($("input:radio[name=large]:checked").val());
@@ -83,55 +54,9 @@ pizza1.olives = parseInt($("input:radio[name=olives]:checked").val());
 pizza1.sausage = parseInt($("input:radio[name=sausage]:checked").val());
 pizza1.peppers = parseInt($("input:radio[name=peppers]:checked").val());
 console.log(pizza1);
-var sizeCost = pizza1.addSize();
-// var toppingCost = pizza1.addToppings();
-// var combined = sizeCost.concat(toppingCost);
-// var cost = combined.reduce(addNumbers);
-// function addNumbers(total, num) {
-//   return total + num;
-// }
-// var price = pizza1.addPrice();
-
-console.log(sizeCost);
-
-$("#cost").text(sizeCost)
-
-
-
-// this generates the price of the pizza
-// var prices = [pizza1.base, pizza1.pepperoni, pizza1.olives, pizza1.sausage, pizza1.peppers];
-// var filter1 = prices.filter(function(value){
-//   return value === 10;});
-// var filter2 = prices.filter(function(value){
-//     return value === 2;});
-// var combined = filter1.concat(filter2)
-// var addFilter2 = combined.reduce(addNumbers);
-// function addNumbers(total, num) {
-//   return total + num;
-// }
-// $("#cost").text(addFilter2)
-
-
-// var nan = []
-// var pizza = []
-// prices.forEach(function(price){
-//   if(pizza === "NaN"){
-//   nan.push(pizza)
-// }else{
-//   price.push(pizza)
-// }
-// });
-
-
-// var pizzaPrice = []
-// pizza1.forEach(function(pizza){
-//     if(pizza === 10 | 2){
-//       pizzaPrice.push(pizza)
-//     }else{
-//     }
-//
-//     });
-
+var cost = pizza1.addPrice();
+$("#cost").text(cost);
+$(".total").show()
 
 
 });
