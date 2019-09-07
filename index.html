@@ -1,48 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css" type="text/css">
-    <script src="js/jquery-3.4.1.js"></script>
-    <script src="js/scripts.js"></script>
-    <title>Pizza</title>
-  </head>
-  <body>
 
-<div class="container">
-  <br><br>
-  <form id="form">
-  <h3>Start Pizza:</h3>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css" type="text/css">
+  <script src="js/jquery-3.4.1.js"></script>
+  <script src="js/scripts.js"></script>
+  <title>Pizza</title>
+</head>
 
-  <h4>Choose a size for your pizza (cheese only):</h4>
-  <label>Small</label> <input type="radio" name="small" value="10"><br><br>
-  <label>Medium</label> <input type="radio" name="medium" value="12"><br><br>
-  <label>Large</label> <input type="radio" name="large" value="14"><br><br>
+<body>
 
-  <h3>Choose Toppings:</h3>
-  <label>Pepperoni</label> <input type="radio" name="pepperoni" value="2"><br><br>
-  <label>Olives</label> <input type="radio" name="olives" value="2"><br><br>
-  <label>Sausage</label> <input type="radio" name="sausage" value="2"><br><br>
-  <label>Peppers</label> <input type="radio" name="peppers" value="2"><br><br>
+  <div class="container">
+    <br><br>
+    <form id="form">
+      <h3>Start Pizza:</h3>
 
-  <!-- <h2>Add Toppings</h2>
-  <input type="checkbox" name="topping" value="2" id="pepperoni">Pepperoni<br>
-  <input type="checkbox" name="topping" value="4" id= "olives">Olives<br>
-  <input type="checkbox" name="topping" value="6"id="sausage">Sausage<br>
-  <input type="checkbox" name="topping" value="8" id="peppers">Peppers<br>
- -->
+      <h4>Choose a size for your pizza (cheese only):</h4>
+      <select id="size">
+        <option type= "radio" name = "size" value="12">Small</option>
+        <option type= "radio" name = "size" value="14">Medium</option>
+        <option type= "radio" name = "size" value="16">Large</option>
+      </select>
 
-  <button type="submit" name="button">Submit!</button>
-  <!-- <button type="reset" name="button">Reset</button> -->
-</form>
+      <h3>Choose Toppings:</h3>
+      <input type="checkbox" name="toppings" value= 2> Sausage<br>
+      <input type="checkbox" name="toppings" value= 2> Olives<br>
+      <input type="checkbox" name="toppings" value=2> Spinach<br>
+      <input type="checkbox" name="toppings" value=2> Pepperoni<br>
 
-<div class="total">
-  <br><br><br>
-  <h3>Your total is:</h3>
-  <p id = "cost"></p>
-</div>
+      <button type="submit" name="button">Submit!</button>
 
-</div>
-  </body>
-  </html>
+    </form>
+
+    <div class="total">
+      <br><br><br>
+      <h3>Your total is:</h3>
+      <p id="cost"></p>
+    </div>
+
+  </div>
+</body>
+
+</html>
