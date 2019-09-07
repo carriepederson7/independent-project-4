@@ -1,13 +1,45 @@
-function Pizza(inputSize, toppingsArray) {
-  this.size = inputSize;
-  this.toppings = [];
+function Pizza(inputSize, toppings) {
+  this.size = parseInt(inputSize);
+  this.toppings = toppings;
 }
+
 
 
 Pizza.prototype.addPrice = function() {
-  var toppings = this.toppings.toString();
-return parseInt(this.size) + this.toppings;
-}
+  var toppings = []
+  for (i = 0; i < this.toppings.length; i++) {
+    toppings[i] = parseInt(this.toppings[i]);}
+  var finalToppings = []
+    toppings.forEach(function(topping) {
+      if (topping === 2) {
+        finalToppings.push(topping)
+      }
+    });
+  var one = finalToppings.concat(this.size);
+  var two = one.splice("");
+  total = 0;
+  two.forEach(function(number) {
+  total = number + total
+      });
+
+      return total
+
+    };
+// total= 0
+// total = this.size + this.toppings.length;
+// return total
+// var one = this.size
+// var toppings = this.toppings.splice('')
+// total = 0;
+// toppings.forEach(function(topping){
+//       total = topping + total
+//     });
+// var three = one.concat(two);
+
+
+
+
+
 
 
 
@@ -29,16 +61,7 @@ return parseInt(this.size) + this.toppings;
 //     }
 //   });
 //
-//   var one = finalToppings.concat(size);
-//   var two = one.splice("");
-//   total = 0;
-//   two.forEach(function(number) {
-//     total = number + total
-//   });
 //
-//   return total
-//
-// }
 
 
 
@@ -49,12 +72,14 @@ $(document).ready(function() {
 
     var size = $("#size").val();
     var toppings = [];
-    var toString = toppings.toString();
-    console.log(toString);
     $("input:checkbox[name=toppings]:checked").each(function() {
       toppings.push($(this).val());
     });
-    var newPizza = new Pizza(size, toString);
+    var numbers = toppings.toString();
+    console.log(numbers);
+
+    console.log(toppings.length);
+    var newPizza = new Pizza(size, numbers);
     var cost = newPizza.addPrice();
     console.log(size);
     $("#cost").text(cost);
